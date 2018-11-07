@@ -1,0 +1,32 @@
+
+<ion-view view-title="Upcoming Events">
+  <ion-nav-buttons side="secondary">
+    <h1 class="title">Group By Month & Year</h1>
+    <div class="buttons">
+      <button class="button button-icon ion-android-search"
+              ng-click="showFilterBar()"></button>
+      </div>
+  </ion-nav-buttons>
+
+
+  <ion-content>
+    <ion-item ng-repeat="event in events">
+
+      <div class="card--expand" ui-sref="app.event({id : event.$id})">
+        <div class="item item-divider" style="background: url({{event.image}}) center / cover; color: white;">
+          {{event.name}}
+        </div>
+        <div class="item item-text-wrap">
+          <p>{{event.description}}</p>
+        </div>
+        <p>
+          <a href="#" class="subdued">1 Like</a>
+          <span class="subdued">Max. {{event.maxParticipants}}</span>
+          <span class="subdued">Date: {{event.date.substring(0, 21)}}</span>
+        </p>
+      </div>
+    </ion-item>
+
+
+  </ion-content>
+</ion-view>

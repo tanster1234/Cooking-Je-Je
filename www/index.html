@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet">
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+    <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDwEG-SyalX9EthHSZyh-0oShgbr0txeAM",
+    authDomain: "cookingjeje-334de.firebaseapp.com",
+    databaseURL: "https://cookingjeje-334de.firebaseio.com",
+    storageBucket: "cookingjeje-334de.appspot.com",
+    messagingSenderId: "489647331098"
+  };
+  firebase.initializeApp(config);
+    </script>
+    <!-- AngularFire -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic/js/angular/angular-resource.min.js"></script>
+    <script src="lib/ionic-material/dist/ionic.material.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+    <script src="js/services.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <!-- ion-datetime-picker-->
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+
+
+
+    <!-- CSS and JS File for Datetime-picker Plugin-->
+    <script src="lib/ion-datetime-picker/release/ion-datetime-picker.min.js"></script>
+    <link href="lib/ion-datetime-picker/release/ion-datetime-picker.min.css" rel="stylesheet">
+    <!-- CSS and JS File for Search bar Plugin-->
+    <link href="lib/ionic-filter-bar/dist/ionic.filter.bar.min.css" rel="stylesheet">
+    <script src="lib/ionic-filter-bar/dist/ionic.filter.bar.min.js"></script>
+
+  </head>
+
+  <body ng-app="cookingjeje">
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

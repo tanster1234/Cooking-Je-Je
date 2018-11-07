@@ -1,0 +1,85 @@
+<ion-view view-title="Eventpage" id="page1">
+  <ion-nav-buttons side="secondary">
+    <div class="buttons">
+      <button id="userProfile-button4" class="button-icon icon icon ion-trash-a" ng-click="deleteEvent()"></button>
+
+    </div>
+  </ion-nav-buttons>
+
+  <ion-content padding="true" class="has-header">
+    <div style="margin-left: -10px; width: calc(100% + 20px);">
+      <img src="img/German.png" style="display: block; width: 100%;height:50px;margin-left: auto; margin-right: auto;">
+      <input type="file" value="upload" id="fileUpload" ng-click="upload()" />
+      </img>
+    </div>
+    <form id="editForm" name="editForm" novalidate>
+      <!--ng-submit="doCreation()" -->
+      <ul class="list">
+        <li>
+          <label class="item item-input item-stacked-label" id="page-input1" >
+            <span class="input-label">Eventname</span>
+            <input placeholder="Dim Sum" type="text" ng-model="event.name" name="eventName" required>
+          </label>
+          <div class="isa_warning" ng-show="creationForm.eventName.$error.required && !creationForm.eventName.$pristine">
+            <i class="fa fa-warning"></i>
+            Event name is required
+          </div>
+        </li>
+
+
+        <div class="item" ion-datetime-picker ng-model="event.date" >
+          <span class="input-label ion-ios-clock" placeholder="Click me" name="eventDate" required> Date</span> {{event.date | date: "yyyy-MM-dd H:mm:ss"}}
+        </div>
+        <div class="isa_warning" ng-show="creationForm.eventDate.$error.required && !creationForm.eventDate.$pristine">
+          <i class="fa fa-warning"></i>
+          Event date is required
+        </div>
+        <!--
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Time</span>
+          <input type="date" ng-init="model=(event.date | date:'yyyy-MM-dd')" ng-model="model" />
+          </label>-->
+
+        <label class="item item-input item-stacked-label" id="page-input4" >
+          <span class="input-label">Location</span>
+          <input placeholder="Hall XXX" type="text" ng-model="event.location" name="eventLocation" required>
+        </label>
+        <div class="isa_warning" ng-show="creationForm.eventLocation.$error.required && !creationForm.eventLocation.$pristine">
+          <i class="fa fa-warning"></i>
+          Event location is required
+        </div>
+
+
+        <label class="item item-input item-stacked-label" id="page-input7">
+          <span class="input-label">Max. Participants</span>
+          <input ng-model="event.maxParticipants" type="text">
+        </label>
+        <ion-item class="range range-positive" id="page-range1">
+          <input value="5" min="2" max="50" step="1" name="eventMaxParticipants" ng-model="event.maxParticipants" type="range" required>
+        </ion-item>
+        <label class="item item-select item-stacked-label" id="page-select1">
+          <span class="input-label">Category</span>
+          <select ng-model="event.image" name="eventCategorie">
+            <option value="img/Chinese.png">Chinese</option>
+            <option value="img/German.png">German</option>
+            <option value="img/Italien.png">Italien</option>
+          </select>
+        </label>
+        <label class="item item-input item-stacked-label" id="page-textarea1">
+          <span class="input-label">Description</span>
+          <span class="input-label"></span><textarea placeholder="This is the description" ng-model="event.description" name="eventDescription" required></textarea>
+        </label>
+        <div class="isa_warning" ng-show="creationForm.eventDescription.$error.required && !creationForm.eventDescription.$pristine">
+          <i class="fa fa-warning"></i>
+          Event description is required
+        </div>
+      </ul>
+
+
+      <label class="item">
+        <button class="button button-block button-balanced" type="submit" ng-click="submit()" ng-disabled="editForm.$invalid">Submit Changes</button>
+      </label>
+
+    </form>
+  </ion-content>
+</ion-view>

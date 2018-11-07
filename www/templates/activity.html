@@ -1,0 +1,68 @@
+<ion-view title="Event">
+  <ion-tabs class="tabs-stable tabs-icon-top">
+
+    <ion-tab title="Info" icon="ion-information">
+    <ion-content padding="true" class="has-header">
+      <div class="spacer" style="width: 300px; height: 25px;"></div>
+      <ion-list id="info-list1">
+        <ion-item class="item-avatar" id="info-list-item11">
+          <h2 id="userProfile-heading2">{{event.name}}</h2>
+        </ion-item>
+      </ion-list>
+      <div style="margin: 0px; line-height: 250px; background-color: rgb(232, 235, 239); text-align: center;">
+        <img src="{{event.image}}" class="img">
+      </div>
+      <div class="list card" id="info-card23">
+        <div class="item item-body" id="info-list-item-container6">
+          <div id="info-markdown8" class="show-list-numbers-and-dots">
+            <p>{{event.description}}</p> </div>
+        </div>
+      </div>
+      <div id="info-markdown9" class="show-list-numbers-and-dots">
+        <p>
+          <!--<a href="#" class="subdued">1 Like</a>-->
+          <p class="subdued">Maximum Participants: {{event.maxParticipants}}</p>
+          <p class="subdued">Date: {{event.date.substring(0, 21)}}</p>
+          <p class="subdued">Location of the event: {{event.location}}</p>
+        </p>
+      </div>
+      <div id="info-button-bar3" class="button-bar">
+        <button id="info-button22" class="button button-positive  button-block" ng-click="checkLikeOnClick()">{{checkLike()}}</button>
+        <button id="info-button21" class="button button-positive  button-block" ng-click="checkJoinOnClick()">{{checkJoin()}}</button>
+        <button ng-show="isAdmin"id="info-button23" class="button button-positive  button-block" ui-sref="app.editEvent({id : event.$id})">Edit</button>
+      </div>
+    </ion-content>
+    </ion-tab>
+
+    <ion-tab title="Participants" icon="ion-android-people">
+      <!-- Tab 2 content -->
+      <ion-content padding="true">
+        <div class="spacer" style="width: 300px; height: 25px;"></div>
+        <ion-list>
+          <ion-item ng-repeat="user in participants">
+            <ion-avatar item-left>
+              <img src="{{user.profile_picture}}">
+            </ion-avatar>
+            <h2>{{user.name}}</h2>
+            <p>{{user.description}}</p>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-tab>
+    <ion-tab title="Comments" icon="ion-android-textsms">
+
+      <ion-content padding="true">
+        <div class="spacer" style="width: 300px; height: 25px;"></div>
+        <ion-list>
+          <ion-item ng-repeat="comment in comments | orderBy: 'created':true">
+            <h2>{{comment.creatorName}}</h2>
+            <p>{{comment.text}}</p>
+          </ion-item>
+        </ion-list>
+        <button id="userProfile-button4" class="button button-positive button-small button-block button-outline" ng-click="showPopup()">addComment</button>
+      </ion-content>
+
+    </ion-tab>
+
+  </ion-tabs>
+</ion-view>

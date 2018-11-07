@@ -1,0 +1,15 @@
+<ion-view title="Edit Info" id="page6">
+  <ion-content padding="true" class="has-header">
+    <h2 id="userProfile-heading2" style="color:#000000;">{{user.name}}</h2>
+    <div class="img-rounded">
+      <img src="{{user.profile_picture}}" class="img-circle">
+    </div>
+    <div id="userProfile-markdown3" class="show-list-numbers-and-dots">
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Description</span>
+    <input type="text" placeholder="Description" ng-model="user.description">
+  </label>
+    </div>
+    <button id="userProfile-button4" class="button button-positive button-small button-block button-outline" ng-click="update()">submit</button>
+  </ion-content>
+</ion-view>

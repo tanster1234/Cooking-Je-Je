@@ -1,0 +1,15 @@
+<ion-view view-title="Joined Events">
+  <ion-content>
+    <ion-list show-delete="shouldShowDelete">
+      <ion-item ng-repeat="event in events " class="item-thumbnail-left" ui-sref="app.event({id : event.$id})">
+        <img ng-src="{{event.image}}">
+        <h2>{{event.name}}</h2>
+        <p>Host: {{event.adminName}}</p>
+        <p>{{event.description}}</p>
+        <ion-delete-button class="ion-minus-circled"
+                           ng-click="deleteEvent(event.id)">
+        </ion-delete-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

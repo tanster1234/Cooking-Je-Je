@@ -1,0 +1,12 @@
+<ion-view title="my Info" id="page6">
+  <ion-content padding="true" class="has-header">
+    <h2 id="userProfile-heading2" style="color:#000000;">{{user.name}}</h2>
+    <div class="img-rounded">
+      <img src="{{user.profile_picture}}" class="img-circle">
+    </div>
+    <div id="userProfile-markdown3" class="show-list-numbers-and-dots">
+      <p style="color:#000000;">{{user.description}}</p>
+    </div>
+    <button ui-sref="app.editInfo" id="userProfile-button4" class="button button-positive button-small button-block button-outline">Edit</button>
+  </ion-content>
+</ion-view>
